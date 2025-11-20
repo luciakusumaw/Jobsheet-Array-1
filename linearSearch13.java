@@ -1,16 +1,30 @@
+import java.util.Scanner;
 public class linearSearch13 {
     public static void main(String[] args) {
-    int[] arrayInt = { 34, 18, 26, 48, 72, 20, 56, 63 };
-    int key = 20;
-    int result = 0;
+        Scanner sc = new Scanner(System.in);
 
-    for (int i = 0; i < arrayInt.length; i++) {
-        if (arrayInt[i] == key) {
-            result = i;
-            break;
+        System.out.print("Enter the number of array elements: ");
+        int n = sc.nextInt();
+
+        int[] arrayInt = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter element " + i + ": ");
+            arrayInt[i] = sc.nextInt();
+        }
+        System.out.print("Enter the key you want to search for: ");
+        int key = sc.nextInt();
+
+        boolean found = false;
+        for (int i = 0; i < n; i++) {
+            if (arrayInt[i] == key) {
+                System.out.println("Key found at index position: " + i);
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("Key not found.");
         }
     }
+}
 
-    System.out.println("The key in the array is located at index position " + result);
-}
-}
